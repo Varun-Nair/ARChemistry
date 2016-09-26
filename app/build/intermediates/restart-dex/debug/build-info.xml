@@ -4,7 +4,7 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="778817154673387"
+    timestamp="851911473487697"
     token="-989676872666472663" >
 
     <task
@@ -24,7 +24,7 @@
         location="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="778817154673387" >
+    <build timestamp="851911473487697" >
         <artifact
             location="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />

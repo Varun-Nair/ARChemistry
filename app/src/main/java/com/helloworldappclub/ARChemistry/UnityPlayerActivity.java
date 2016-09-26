@@ -26,10 +26,14 @@ public class UnityPlayerActivity extends Activity
     private JSONObject coords;
     private int counter=0;
 
-    private final int TEST_CID=15600;
+    private final int TEST_CID=2519;
     //15600 decane
     //297 methane
     //2519 caffeine
+    //5957 ATP
+    //962 water
+    //24526 diatomic chlorine
+    //702 ethanol
 
 
 	// Setup activity layout

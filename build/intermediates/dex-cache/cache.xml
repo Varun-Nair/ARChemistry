@@ -12,14 +12,14 @@
         jar="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="c66e53b463ea9c71c64282ffc871fec96f479fde">
+        sha1="d3abfe8c2ec968da00db8772fa5d8a59d8ba3296">
         <dex dex="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_5a0e292521e14dada271832b6e518677c1b05fdc\classes.dex" />
     </item>
     <item
         jar="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="78fa3f0623fbf426fd8ce82091afb2c48e07587b">
+        sha1="8780d896eeed81cc0d222d9980d29d493012a36e">
         <dex dex="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_00168b99a7c3aca306b28d8b7525046b08010401\classes.dex" />
     </item>
     <item
