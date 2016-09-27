@@ -1,3 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Justin\Documents\GitHub\ARChemistry\app\libs\jsoup-1.9.2.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="28e5375920a4f6e73123e45ab6ad3b8bc93b0869">
+        <dex dex="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\dex\debug\folders\1000\2\jsoup-1.9.2_e1cc92a032e9e97ce0016299085b720507ab25fd\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Justin\Documents\GitHub\ARChemistry\app\libs\VuforiaUnityPlayer.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1ff5b2872aa24dd64270c222c43d7e2d346da857">
+        <dex dex="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\dex\debug\folders\1000\2\VuforiaUnityPlayer_fae81e47f600f856e9fc9d87a2d549dc3e86d14a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="611d479a45bc1c42eafac6cef4829353916f8aea">
+        <dex dex="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_5a0e292521e14dada271832b6e518677c1b05fdc\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f90343731f5d195d9c2de0b89bdd4ec686a7a564">
+        <dex dex="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_00168b99a7c3aca306b28d8b7525046b08010401\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Justin\Documents\GitHub\ARChemistry\app\libs\Vuforia.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="07936bfa16dffcab1be8533c7279365fefb6a2ff">
+        <dex dex="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\dex\debug\folders\1000\2\Vuforia_eb0b814b54451e012488b47d5887f945a752e7c0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Justin\Documents\GitHub\ARChemistry\app\libs\unity-classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="93fa9a51dbd4f87bb42ef88062eb2deb4ff62c23">
+        <dex dex="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\dex\debug\folders\1000\2\unity-classes_322dba657031ca32a424a70a91294651f0b58dc0\classes.dex" />
+    </item>
+
+</items>

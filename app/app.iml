@@ -109,5 +109,6 @@
     <orderEntry type="library" exported="" name="VuforiaUnityPlayer" level="project" />
     <orderEntry type="library" exported="" name="Vuforia" level="project" />
     <orderEntry type="library" exported="" name="unity-classes" level="project" />
+    <orderEntry type="library" exported="" name="jsoup-1.9.2" level="project" />
   </component>
 </module>
