@@ -4,6 +4,7 @@ import com.unity3d.player.*;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.graphics.PixelFormat;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -12,21 +13,33 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ListView;
+import android.widget.SearchView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.util.ArrayList;
 
 public class UnityPlayerActivity extends Activity
 {
-	protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
-	private int currentCID=-1;
+    protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
+    private int currentCID=-1;
     private JSONObject atoms;
     private JSONObject bonds;
     private JSONObject coords;
     private int counter=0;
 
-    private final int TEST_CID=2519;
+    private final int TEST_CID=15600;
+    ArrayList<String> moleculeResults, filteredMoleculeResults;
+    SearchView searchView;
+    ListView moleculeList;
+
     //15600 decane
     //297 methane
     //2519 caffeine
@@ -36,27 +49,93 @@ public class UnityPlayerActivity extends Activity
     //702 ethanol
 
 
-	// Setup activity layout
-	@Override protected void onCreate (Bundle savedInstanceState)
-	{
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		super.onCreate(savedInstanceState);
+    // Setup activity layout
+    @Override protected void onCreate (Bundle savedInstanceState)
+    {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);
 
-		getWindow().setFormat(PixelFormat.RGBX_8888); // <--- This makes xperia play happy
+        getWindow().setFormat(PixelFormat.RGBX_8888); // <--- This makes xperia play happy
 
-		mUnityPlayer = new UnityPlayer(this);
-		setContentView(R.layout.activity_main);
-		FrameLayout f=(FrameLayout)findViewById(R.id.activity_main_frameLayout);
-		f.addView(mUnityPlayer);
-		mUnityPlayer.requestFocus();
-	}
+        mUnityPlayer = new UnityPlayer(this);
+        setContentView(R.layout.activity_main);
+        FrameLayout f=(FrameLayout)findViewById(R.id.activity_main_frameLayout);
+        f.addView(mUnityPlayer);
+        mUnityPlayer.requestFocus();
 
-	public void selectCompound(View view){
+        moleculeResults = new ArrayList<String>();
+        filteredMoleculeResults = new ArrayList<String>();
+        searchView = (SearchView) findViewById(R.id.searchview);
+        moleculeList = (ListView) findViewById(R.id.listview);
+        moleculeList.setVisibility(View.GONE);
+
+        searchView.setQueryHint("Molecule Name");
+
+        searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (newText.length() > 1){
+                    moleculeList.setVisibility(View.VISIBLE);
+                }
+
+                return false;
+            }
+        });
+
+    }
+
+    public class SearchAsyncTask extends AsyncTask<String, Void, String>{
+
+        String words = " ";
+
+        @Override
+        protected String doInBackground(String... arg0) {
+
+            try {
+
+                Document doc1 = Jsoup.connect("https://www.ncbi.nlm.nih.gov/pccompound?term=butane").get();
+                Log.d("Document", doc1.toString());
+                Elements elements = doc1.getElementsByClass("title");
+                Document doc2 = Jsoup.parse(elements.toString());
+                Elements linkElements = doc2.select("a");
+                Log.d("H3H3", elements.toString());
+                Log.d("Links", linkElements.toString());
+                // words = doc.toString().substring(doc.toString().indexOf("\"/"), doc.toString().indexOf("</a>"));
+                //Log.d("Nice Meme", elements.text());
+               // words = doc.text();
+
+            }catch (Exception e){
+                e.printStackTrace();
+                Log.d("ExceptionError", e.toString());
+            }
+                return "Executed";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            Log.d("PhoenixNow Result", words);
+        }
+    }
+
+    public void selectCompound(View view){
         PubChemConnection p=new PubChemConnection();
-		p.loadCID(TEST_CID+counter, new PubChemConnection.PubChemDataListener() {
-			@Override
-			public void onSuccess(String message) {
-				Log.d("Success",message);
+        p.loadCID(TEST_CID+counter, new PubChemConnection.PubChemDataListener() {
+            @Override
+            public void onSuccess(String message) {
+                Log.d("Success",message);
                 try {
                     JSONObject json=new JSONObject(message);
                     JSONObject pc_compounds=json.getJSONArray("PC_Compounds").getJSONObject(0);
@@ -73,17 +152,19 @@ public class UnityPlayerActivity extends Activity
                 }
             }
 
-			@Override
-			public void onFailure(String message) {
-				Log.d("Failure",message);
-			}
+            @Override
+            public void onFailure(String message) {
+                Log.d("Failure",message);
+            }
 
-			@Override
-			public void onCancelled() {
-				Log.d("Cancelled","Cancelled");
-			}
-		});
-	}
+            @Override
+            public void onCancelled() {
+                Log.d("Cancelled","Cancelled");
+            }
+        });
+
+        new SearchAsyncTask().execute();
+    }
 
     public int[] jsonArrayToIntArray(JSONArray jsonArray){
         int[] i=new int[jsonArray.length()];
@@ -108,7 +189,7 @@ public class UnityPlayerActivity extends Activity
         }
         return i;
     }
-	public int getCID(){
+    public int getCID(){
         return currentCID;
     }
     public int[] getAID(){
@@ -175,53 +256,53 @@ public class UnityPlayerActivity extends Activity
         }
         return null;
     }
-	// Quit Unity
-	@Override protected void onDestroy ()
-	{
-		mUnityPlayer.quit();
-		super.onDestroy();
-	}
+    // Quit Unity
+    @Override protected void onDestroy ()
+    {
+        mUnityPlayer.quit();
+        super.onDestroy();
+    }
 
-	// Pause Unity
-	@Override protected void onPause()
-	{
-		super.onPause();
-		mUnityPlayer.pause();
-	}
+    // Pause Unity
+    @Override protected void onPause()
+    {
+        super.onPause();
+        mUnityPlayer.pause();
+    }
 
-	// Resume Unity
-	@Override protected void onResume()
-	{
-		super.onResume();
-		mUnityPlayer.resume();
-	}
+    // Resume Unity
+    @Override protected void onResume()
+    {
+        super.onResume();
+        mUnityPlayer.resume();
+    }
 
-	// This ensures the layout will be correct.
-	@Override public void onConfigurationChanged(Configuration newConfig)
-	{
-		super.onConfigurationChanged(newConfig);
-		mUnityPlayer.configurationChanged(newConfig);
-	}
+    // This ensures the layout will be correct.
+    @Override public void onConfigurationChanged(Configuration newConfig)
+    {
+        super.onConfigurationChanged(newConfig);
+        mUnityPlayer.configurationChanged(newConfig);
+    }
 
-	// Notify Unity of the focus change.
-	@Override public void onWindowFocusChanged(boolean hasFocus)
-	{
-		super.onWindowFocusChanged(hasFocus);
-		mUnityPlayer.windowFocusChanged(hasFocus);
-	}
+    // Notify Unity of the focus change.
+    @Override public void onWindowFocusChanged(boolean hasFocus)
+    {
+        super.onWindowFocusChanged(hasFocus);
+        mUnityPlayer.windowFocusChanged(hasFocus);
+    }
 
-	// For some reason the multiple keyevent type is not supported by the ndk.
-	// Force event injection by overriding dispatchKeyEvent().
-	@Override public boolean dispatchKeyEvent(KeyEvent event)
-	{
-		if (event.getAction() == KeyEvent.ACTION_MULTIPLE)
-			return mUnityPlayer.injectEvent(event);
-		return super.dispatchKeyEvent(event);
-	}
+    // For some reason the multiple keyevent type is not supported by the ndk.
+    // Force event injection by overriding dispatchKeyEvent().
+    @Override public boolean dispatchKeyEvent(KeyEvent event)
+    {
+        if (event.getAction() == KeyEvent.ACTION_MULTIPLE)
+            return mUnityPlayer.injectEvent(event);
+        return super.dispatchKeyEvent(event);
+    }
 
-	// Pass any events not handled by (unfocused) views straight to UnityPlayer
-	@Override public boolean onKeyUp(int keyCode, KeyEvent event)     { return mUnityPlayer.injectEvent(event); }
-	@Override public boolean onKeyDown(int keyCode, KeyEvent event)   { return mUnityPlayer.injectEvent(event); }
-	@Override public boolean onTouchEvent(MotionEvent event)          { return mUnityPlayer.injectEvent(event); }
-	/*API12*/ public boolean onGenericMotionEvent(MotionEvent event)  { return mUnityPlayer.injectEvent(event); }
+    // Pass any events not handled by (unfocused) views straight to UnityPlayer
+    @Override public boolean onKeyUp(int keyCode, KeyEvent event)     { return mUnityPlayer.injectEvent(event); }
+    @Override public boolean onKeyDown(int keyCode, KeyEvent event)   { return mUnityPlayer.injectEvent(event); }
+    @Override public boolean onTouchEvent(MotionEvent event)          { return mUnityPlayer.injectEvent(event); }
+    /*API12*/ public boolean onGenericMotionEvent(MotionEvent event)  { return mUnityPlayer.injectEvent(event); }
 }

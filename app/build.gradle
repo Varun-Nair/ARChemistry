@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.helloworldappclub.ARChemistry"
         minSdkVersion 14
-        targetSdkVersion 22
+        targetSdkVersion 23
     }
 
     buildTypes {
@@ -22,4 +22,5 @@ dependencies {
     compile files('libs/unity-classes.jar')
     compile files('libs/Vuforia.jar')
     compile files('libs/VuforiaUnityPlayer.jar')
+    compile 'org.jsoup:jsoup:1.9.2'
 }

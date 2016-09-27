@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="armeabi-v7a,armeabi"
-    api-level="23"
-    density="xxhdpi"
+    abi="arm64-v8a,armeabi-v7a,armeabi"
+    api-level="24"
+    density="560dpi"
     format="7"
-    timestamp="851911473487697"
-    token="-989676872666472663" >
+    timestamp="2367547293785"
+    token="7552921983208158924" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="3685" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="406" />
     <task
         name="verifier"
-        duration="0" />
+        duration="191" />
 
     <artifact
-        location="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\outputs\apk\app-debug.apk"
+        location="C:\Users\nairv\Documents\GitHub\ARChemistry\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="851911473487697" >
+    <build timestamp="8973876734217" >
         <artifact
-            location="C:\Users\Justin\Documents\GitHub\ARChemistry\app\build\outputs\apk\app-debug.apk"
+            location="C:\Users\nairv\Documents\GitHub\ARChemistry\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
 

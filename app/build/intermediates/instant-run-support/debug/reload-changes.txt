@@ -1,0 +1,4 @@
+CHANGED,C:\Users\nairv\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\helloworldappclub\ARChemistry\UnityPlayerActivity$override.class
+CHANGED,C:\Users\nairv\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,C:\Users\nairv\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\helloworldappclub\ARChemistry\UnityPlayerActivity$SearchAsyncTask$override.class
+CHANGED,C:\Users\nairv\Documents\GitHub\ARChemistry\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\helloworldappclub\ARChemistry\UnityPlayerActivity$3$override.class
