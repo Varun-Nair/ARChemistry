@@ -46,7 +46,7 @@ public class PubChemConnection {
                 long start=System.currentTimeMillis();
                 while(code==-1){
                     code=uc.getResponseCode();
-                    if(System.currentTimeMillis()-start>5000){//server timed out, call appropriate listener method
+                    if(System.currentTimeMillis()-start>10000){//server timed out, call appropriate listener method
                         listener.onCancelled();
                         return;
                     }
