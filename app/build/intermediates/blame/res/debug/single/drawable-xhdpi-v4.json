@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\varun\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\app_banner.png",
+        "source": "C:\\Users\\varun\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\drawable-xhdpi\\app_banner.png"
+    },
+    {
         "merged": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\app_banner.png",
         "source": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\drawable-xhdpi\\app_banner.png"
     }

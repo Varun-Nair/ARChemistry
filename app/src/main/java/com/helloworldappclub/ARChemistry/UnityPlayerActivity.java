@@ -7,15 +7,21 @@ import android.graphics.PixelFormat;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -46,6 +52,12 @@ public class UnityPlayerActivity extends Activity
     private ArrayList<String> moleculeNames;
     private SearchView searchView;
     private ListView moleculeList;
+    private PopupWindow popupWindow;
+    private LayoutInflater layoutInflater;
+    Button moleculeInfo;
+    RelativeLayout relativeLayout;
+    int CID;
+
 
     //15600 decane
     //297 methane
@@ -83,6 +95,27 @@ public class UnityPlayerActivity extends Activity
                 currentMolecule=name;
                 loadCID(results.get(moleculeNames.get(position)));
                 moleculeList.setVisibility(View.GONE);
+            }
+        });
+
+        moleculeInfo = (Button) findViewById(R.id.activity_main_button);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative);
+        moleculeInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.popup, null);
+                popupWindow = new PopupWindow(container, 1200, 800, true);
+                popupWindow.showAtLocation(relativeLayout, Gravity.CENTER, 0, 200);
+                TextView moleculeName = (TextView) container.findViewById(R.id.moleculeName);
+                moleculeName.setText(getMolecule().toLowerCase());
+                container.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        popupWindow.dismiss();
+                        return false;
+                    }
+                });
             }
         });
 
@@ -139,7 +172,7 @@ public class UnityPlayerActivity extends Activity
                     String name=e.html();
                     String id=e.attr("href");
                     id=id.replace("//pubchem.ncbi.nlm.nih.gov/compound/","");
-                    int CID=Integer.decode(id);
+                    CID=Integer.decode(id);
                     name=name.replace("<b>","");
                     name=name.replace("</b>","");
                     Log.d("Element",name);
@@ -172,7 +205,7 @@ public class UnityPlayerActivity extends Activity
 
     public void loadCID(int CID){
         PubChemConnection p=new PubChemConnection();
-        p.loadCID(CID, new PubChemConnection.PubChemDataListener() {
+        p.loadCID(CID, 0, new PubChemConnection.PubChemDataListener() {
             @Override
             public void onSuccess(String message) {
                 Log.d("Success",message);
@@ -302,6 +335,15 @@ public class UnityPlayerActivity extends Activity
         return null;
     }
 
+    public String getMolecularFormula(){
+        try{
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
     @Override
     public void onBackPressed(){
