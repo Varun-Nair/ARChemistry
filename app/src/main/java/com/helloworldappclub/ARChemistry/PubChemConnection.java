@@ -23,28 +23,36 @@ public class PubChemConnection {
         // Run CODE: 1 - Get molecule information to populate info popup.
     }
 
-    public void loadCID(int CID,int runCode, PubChemDataListener listener){
-        if(runCode ==0) {
+    public void loadCID(int CID, PubChemDataListener listener){
             ConnectionThreadRC0 t = new ConnectionThreadRC0();
-            t.init(CID, listener);
+            t.init(CID, listener, 0);
             t.start();
-        }
-        else if (runCode == 1){
-
-        }
     }
+
+    public void loadProperties(int CID, PubChemDataListener listener){
+        ConnectionThreadRC0 t = new ConnectionThreadRC0();
+        t.init(CID, listener, 1);
+        t.start();
+    }
+
     private class ConnectionThreadRC0 extends Thread{
         int CID;
         PubChemDataListener listener;
         int runCode;
-        public void init(int CID, PubChemDataListener listener){
+        public void init(int CID, PubChemDataListener listener, int runCode){
             this.CID=CID;
             this.listener=listener;
             this.runCode = runCode;
         }
         public void run(){
             try {
-                URL url=new URL("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/"+Integer.toString(CID)+"/record/JSON/?record_type=3d&response_type=display");
+                URL url = new URL("https://www.google.com/");
+                if (runCode ==0) {
+                        url = new URL("https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + Integer.toString(CID) + "/record/JSON/?record_type=3d&response_type=display");
+                }
+                else if (runCode == 1){
+                    url = new URL("https://pubchem.encbi.nlm.nih.gov/rest/pug/compound/cid/" + Integer.toString(CID) + "/property/MolecularFormula,MolecularWeight/JSON");
+                }
                 HttpsURLConnection uc=(HttpsURLConnection)url.openConnection();
                 uc.setRequestMethod("GET");
 

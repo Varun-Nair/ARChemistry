@@ -32,6 +32,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,9 +46,9 @@ public class UnityPlayerActivity extends Activity
     private JSONObject atoms;
     private JSONObject bonds;
     private JSONObject coords;
-    private int counter=0;
+    private String molecularWeight;
+    private String molecularFormula;
 
-    private final int TEST_CID=15600;
     private HashMap<String,Integer> results;
     private ArrayList<String> moleculeNames;
     private SearchView searchView;
@@ -93,7 +94,9 @@ public class UnityPlayerActivity extends Activity
                 String name=moleculeNames.get(position);
                 name=name.substring(0,name.indexOf(";"));
                 currentMolecule=name;
+
                 loadCID(results.get(moleculeNames.get(position)));
+                loadProperties(results.get(moleculeNames.get(position)));
                 moleculeList.setVisibility(View.GONE);
             }
         });
@@ -109,6 +112,12 @@ public class UnityPlayerActivity extends Activity
                 popupWindow.showAtLocation(relativeLayout, Gravity.CENTER, 0, 200);
                 TextView moleculeName = (TextView) container.findViewById(R.id.moleculeName);
                 moleculeName.setText(getMolecule().toLowerCase());
+                TextView cidTextView = (TextView) container.findViewById(R.id.cidtextview);
+                cidTextView.setText("CID: " + String.valueOf(getCID()));
+                TextView molecularFormulaTextView  = (TextView) container.findViewById(R.id.molecularFormulaTextBox);
+                molecularFormulaTextView.setText("Molecular Formula: " + getMolecularFormula());
+                TextView molecularWeightTextView  = (TextView) container.findViewById(R.id.molecularWeightTextBox);
+                molecularWeightTextView.setText("Molecular Weight: " + getMolecularWeight());
                 container.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
@@ -152,7 +161,7 @@ public class UnityPlayerActivity extends Activity
         }
 
         @Override
-        protected String doInBackground(String... arg0) {
+        protected String doInBackground(String... arg0)     {
             Log.d("Searchterm",searchTerm);
            // "term=((%22name%22%5BSynonym%5D)%20AND%201%3A3%5BConformerCount3D%5D)"
             try {
@@ -203,9 +212,10 @@ public class UnityPlayerActivity extends Activity
         }
     }
 
-    public void loadCID(int CID){
+    public void loadCID(final int CID){
         PubChemConnection p=new PubChemConnection();
-        p.loadCID(CID, 0, new PubChemConnection.PubChemDataListener() {
+        currentCID = CID;
+        p.loadCID(CID,new PubChemConnection.PubChemDataListener() {
             @Override
             public void onSuccess(String message) {
                 Log.d("Success",message);
@@ -218,9 +228,40 @@ public class UnityPlayerActivity extends Activity
                     Log.d("atoms",atoms.toString());
                     Log.d("bonds",bonds.toString());
                     Log.d("coords",coords.toString());
-                    currentCID=TEST_CID+counter;
-                    counter++;
                 } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                loadProperties(CID);
+            }
+
+            @Override
+            public void onFailure(String message) {
+                Log.d("Failure",message);
+            }
+
+            @Override
+            public void onCancelled() {
+                Log.d("Cancelled","Cancelled");
+            }
+        });
+    }
+
+    public void loadProperties(int CID){
+        PubChemConnection connection = new PubChemConnection();
+        connection.loadProperties(CID, new PubChemConnection.PubChemDataListener() {
+            @Override
+            public void onSuccess(String message) {
+                Log.d("Success",message);
+                try{
+                    JSONObject object = new JSONObject(message);
+                    JSONObject pt_object = object.getJSONObject("PropertyTable");
+                    molecularFormula = pt_object.getJSONArray("Properties").getJSONObject(0).getString("MolecularFormula");
+                    molecularWeight = pt_object.getJSONArray("Properties").getJSONObject(0).getString("MolecularWeight");
+                    Log.d("Molecular Formula", molecularFormula);
+                    Log.d("Molecular Weight", molecularWeight);
+
+                }catch (Exception e){
                     e.printStackTrace();
                 }
             }
@@ -267,9 +308,12 @@ public class UnityPlayerActivity extends Activity
     public String getMolecule(){
         return currentMolecule;
     }
+
+
     public int getCID(){
         return currentCID;
     }
+
     public int[] getAID(){
         try {
             return jsonArrayToIntArray(atoms.getJSONArray("aid"));
@@ -337,11 +381,19 @@ public class UnityPlayerActivity extends Activity
 
     public String getMolecularFormula(){
         try{
-
+            return molecularFormula;
         }catch (Exception e){
             e.printStackTrace();
         }
+        return null;
+    }
 
+    public String getMolecularWeight(){
+        try{
+            return molecularWeight;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 

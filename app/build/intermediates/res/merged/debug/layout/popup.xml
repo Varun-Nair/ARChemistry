@@ -22,8 +22,31 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:id="@+id/cidtextview"
         android:layout_marginTop="60dp"
         android:text="CID: "/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/molecularFormulaTextBox"
+        android:layout_marginTop="95dp"
+        android:text="Molecular Formula: "/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/molecularWeightTextBox"
+        android:layout_marginTop="130dp"
+        android:text="Molecular Weight: "/>
 
 
 
