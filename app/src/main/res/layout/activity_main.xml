@@ -17,7 +17,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="This Button Does Nothing"
+        android:text=""
         android:background="#8e4883e9"
         android:layout_centerHorizontal="true"
         android:id="@+id/activity_main_button"

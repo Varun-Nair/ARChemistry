@@ -54,8 +54,7 @@ public class UnityPlayerActivity extends Activity
     //962 water
     //24526 diatomic chlorine
     //702 ethanol
-
-
+    
     // Setup activity layout
     @Override protected void onCreate (Bundle savedInstanceState)
     {
@@ -117,15 +116,14 @@ public class UnityPlayerActivity extends Activity
         public void setText(String searchTerm){
             this.searchTerm=searchTerm;
         }
-
         @Override
         protected String doInBackground(String... arg0) {
             Log.d("Searchterm",searchTerm);
            // "term=((%22name%22%5BSynonym%5D)%20AND%201%3A3%5BConformerCount3D%5D)"
+            //test
             try {
-                Log.d("lol","lol");
-                Log.d("lololol","lol");
-                Document doc1 = Jsoup.connect("https://www.ncbi.nlm.nih.gov/pccompound?term=(%22"+searchTerm+"%22%5BSynonym%5D)%20AND%201%3A3%5BConformerCount3D%5D").get();
+                Log.d("test","test");
+                Document doc1 = Jsoup.connect("https://www.ncbi.nlm.nih.gov/pccompound?term=(%22"+searchTerm+"%22%5BSynonym%5D)").get();
                 Log.d("Document", doc1.toString());
                 Elements elements = doc1.getElementsByClass("title");
                 Document doc2 = Jsoup.parse(elements.toString());
