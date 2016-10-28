@@ -71,7 +71,7 @@ ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidMani
 		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:83-141
 	android:banner
 		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:143-180
-activity#com.helloworldappclub.ARChemistry.UnityPlayerNativeActivity
+activity#com.helloworldappclub.ARChemistry.UnityPlayerActivity
 ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:11:5-18:16
 	android:screenOrientation
 		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:11:48-86
@@ -80,7 +80,7 @@ ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidMani
 	android:configChanges
 		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:11:119-276
 	android:name
-		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:11:277-351
+		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:11:277-345
 	android:launchMode
 		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:11:87-118
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER

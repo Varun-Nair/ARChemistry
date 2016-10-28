@@ -4,21 +4,21 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="2008219988283"
+    timestamp="2327631081635"
     token="-989676872666472663" >
 
     <task
         name="javac"
-        duration="516" />
+        duration="671" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="211" />
+        duration="77" />
     <task
         name="verifier"
-        duration="32" />
+        duration="8" />
 
     <build timestamp="1023759040125532" >
         <artifact
