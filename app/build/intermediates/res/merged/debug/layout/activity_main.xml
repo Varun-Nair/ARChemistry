@@ -1,35 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-<FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/activity_main_frameLayout">
-
-</FrameLayout>
-    <SearchView
+    android:id="@+id/relative"
+    android:layout_height="match_parent">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:id="@+id/searchview"
-        android:layout_height="60dp"
-        android:background="@android:color/darker_gray"
-        />
+        android:layout_height="match_parent"
+        android:id="@+id/activity_main_frameLayout">
+
+    </FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/activity_main_relativeLayout">
+        <SearchView
+            android:layout_width="match_parent"
+            android:id="@+id/searchview"
+            android:layout_height="45dp"
+            android:background="#80b7cb"
+            />
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:text="Help"
+            android:onClick="help"
+            android:background="#8099cb"/>
+    </RelativeLayout>
+
     <Button
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text=""
-        android:background="#8e4883e9"
+        android:layout_height="45dp"
+        android:text="Molecule Info"
+        android:background="#80b7cb"
         android:layout_centerHorizontal="true"
         android:id="@+id/activity_main_button"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:onClick="selectCompound"
         />
     <ListView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@id/searchview"
+        android:divider="#dcffffff"
+        android:dividerHeight="3dp"
+        android:background="#c580eae8"
+        android:layout_below="@id/activity_main_relativeLayout"
         android:layout_above="@id/activity_main_button"
         android:id="@+id/listview"/>
 </RelativeLayout>

@@ -1,19 +1,26 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'Key'
+            keyPassword '123jasfl1215696halvjLAFLKJ%(@>f'
+            storeFile file('C:/Users/Justin/Documents/PhoenixNow/AppKeys/PhoenixNow/key.jks')
+            storePassword '123jasfl1215696halvjLAFLKJ%(@>f'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     defaultConfig {
         applicationId "com.helloworldappclub.ARChemistry"
-        minSdkVersion 15
+        minSdkVersion 14
         targetSdkVersion 23
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.config
         }
     }
 }

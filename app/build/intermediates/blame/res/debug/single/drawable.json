@@ -2,5 +2,13 @@
     {
         "merged": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\app_icon.png",
         "source": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\drawable\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\nairv\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\app_icon.png",
+        "source": "C:\\Users\\nairv\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\drawable\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\official_logo.png",
+        "source": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\drawable\\official_logo.png"
     }
 ]

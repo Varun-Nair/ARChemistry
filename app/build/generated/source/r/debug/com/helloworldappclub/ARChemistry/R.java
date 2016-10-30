@@ -13,15 +13,26 @@ public final class R {
     public static final class drawable {
         public static final int app_banner=0x7f020000;
         public static final int app_icon=0x7f020001;
+        public static final int official_logo=0x7f020002;
     }
     public static final class id {
-        public static final int activity_main_button=0x7f060002;
-        public static final int activity_main_frameLayout=0x7f060000;
-        public static final int listview=0x7f060003;
-        public static final int searchview=0x7f060001;
+        public static final int activity_main_button=0x7f060004;
+        public static final int activity_main_frameLayout=0x7f060001;
+        public static final int activity_main_relativeLayout=0x7f060002;
+        public static final int cidtextview=0x7f060008;
+        public static final int help_dialog_text=0x7f060006;
+        public static final int listview=0x7f060005;
+        public static final int molecularFormulaTextBox=0x7f060009;
+        public static final int molecularWeightTextBox=0x7f06000a;
+        public static final int moleculeName=0x7f060007;
+        public static final int relative=0x7f060000;
+        public static final int searchview=0x7f060003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int help_dialog=0x7f030001;
+        public static final int popup=0x7f030002;
+        public static final int search_result_item=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f050000;

@@ -1,6 +1,26 @@
 [
     {
+        "merged": "C:\\Users\\nairv\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\layout\\popup.xml",
+        "source": "C:\\Users\\nairv\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\layout\\popup.xml"
+    },
+    {
+        "merged": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\layout\\help_dialog.xml",
+        "source": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\layout\\help_dialog.xml"
+    },
+    {
         "merged": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\layout\\popup.xml",
+        "source": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\layout\\popup.xml"
+    },
+    {
+        "merged": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\layout\\search_result_item.xml",
+        "source": "C:\\Users\\Justin\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\layout\\search_result_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\nairv\\Documents\\GitHub\\ARChemistry\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\nairv\\Documents\\GitHub\\ARChemistry\\app\\src\\main\\res\\layout\\activity_main.xml"
     }
 ]

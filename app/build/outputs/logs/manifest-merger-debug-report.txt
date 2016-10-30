@@ -64,13 +64,13 @@ ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidMani
 application
 ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:3-31:17
 	android:label
-		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:50-82
+		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:55-87
 	android:icon
-		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:16-49
+		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:16-54
 	android:theme
-		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:83-141
+		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:88-146
 	android:banner
-		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:143-180
+		ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:10:148-185
 activity#com.helloworldappclub.ARChemistry.UnityPlayerActivity
 ADDED from C:\Users\Justin\Documents\GitHub\ARChemistry\app\src\main\AndroidManifest.xml:11:5-18:16
 	android:screenOrientation

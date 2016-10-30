@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="virtualchem" size="0.200000 0.166616" />
     <ImageTarget name="OrgInsideCover" size="0.200000 0.179016" />
-    <ImageTarget name="OrganicWorkbook" size="0.200000 0.259333" />
-    <ImageTarget name="Giancoli" size="0.200000 0.262632" />
   </Tracking>
 </QCARConfig>
